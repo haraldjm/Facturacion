@@ -15,7 +15,7 @@ public class ProducController {
     @Autowired //No necesitamos crear una instancia de ProductService porque Spring lo hace automáticamente
     private ProductService productService; //Para acceder a los métodos avanzados del servicio
 
-    @GetMapping("/") //Model es el objeto que Spring usa para pasar a la vista (html) las variables que queremos
+    @GetMapping(value = {"/",""}) //Model es el objeto que Spring usa para pasar a la vista (html) las variables que queremos
     public String showProducts(Model model){//Creamos el atributo "products" que contiene todos los productos mediante el método findAll del servicio
         model.addAttribute("products",productService.findAll());//Devuelve el nombre de la plantilla/vista (html) que queremos mostrar
                                                                             //La combinación de Springboot, Thymeleaf y Web nos permite usar el nombre de la vista sin poner la extensión
